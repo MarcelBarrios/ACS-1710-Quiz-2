@@ -27,13 +27,21 @@ def sw_character_results():
     swapi_url = f'https://swapi.py4e.com/api/people/{character_id}'
     response = requests.get(swapi_url)
     character_data = response.json()
+    films_urls = character_data.get('films')
+    film_titles = []
+
+    for film_url in films_urls:
+        film_response = requests.get(film_url)
+        film_data = film_response.json()
+        film_titles.append(film_data.get('title', 'Unknown'))
 
     context = {
         'name': character_data.get('name'),
         'height': character_data.get('height'),
         'mass': character_data.get('mass'),
         'hair_color': character_data.get('hair_color'),
-        'eye_color': character_data.get('eye_color')
+        'eye_color': character_data.get('eye_color'),
+        'films': film_titles
     }
     
     return render_template('display_character.html', **context)

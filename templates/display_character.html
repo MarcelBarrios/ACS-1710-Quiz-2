@@ -14,6 +14,13 @@ Star Wars Character
         <li><strong>Mass:</strong> {{ mass }} kg</li>
         <li><strong>Hair Color:</strong> {{ hair_color }}</li>
         <li><strong>Eye Color:</strong> {{ eye_color }}</li>
+        <li><strong>Movies:</strong> 
+            <ul>
+                {% for film in films %}
+                    <li>{{ film }}</li>
+                {% endfor %}
+            </ul>
+        </li>
     </ul>
 {% else %}
     <p>Character not found. Please check the ID and try again.</p>
