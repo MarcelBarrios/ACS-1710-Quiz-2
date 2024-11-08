@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Star Wars Characters
+{% endblock %}
+
+{% block content %}
+<form action="results" method="GET">
+    <label>
+        Enter an ID/number to see a Star Wars character's information:
+        <input type="number" name="id">
+        <input type="submit" value="Submit!">
+    </label>
+</form>
+{% endblock %}

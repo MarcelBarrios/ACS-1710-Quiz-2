@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Star Wars Character
+{% endblock %}
+
+{% block content %}
+<h1>Star Wars Character Information</h1>
+
+{% if name %}
+    <ul>
+        <li><strong>Name:</strong> {{ name }}</li>
+        <li><strong>Height:</strong> {{ height }} cm</li>
+        <li><strong>Mass:</strong> {{ mass }} kg</li>
+        <li><strong>Hair Color:</strong> {{ hair_color }}</li>
+        <li><strong>Eye Color:</strong> {{ eye_color }}</li>
+    </ul>
+{% else %}
+    <p>Character not found. Please check the ID and try again.</p>
+{% endif %}
+{% endblock %}
